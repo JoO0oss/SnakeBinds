@@ -1,11 +1,13 @@
-# snakebinds
+# SnakeBinds
 Cross platform macro tool built in Python.
 
 (Please note there is currently a large problem with automating mouse and keyboard inputs, rendering the project pretty much unusable.)
 
 ## Use in a project
 
-Currently, I can only recommend copying the folder `snakebinds` into your project to use temporarily, since it is not in a state to more formally publish.
+Currently, I can only recommend copying the subfolder `snakebinds` into your project to use temporarily, since it is not in a state to more formally publish.
+
+Yes, it was a mistake to have the project folder called `snakebinds` and call the package `snakebinds`, I will fix that as soon as I can.
 
 
 ### Example
@@ -68,4 +70,6 @@ To be sure, there can be room to expand, like finding simple way to avoid users 
 The main reason I'm putting it here currently is to expose it to the wider internet to increase the chance of shining a light upon the glaring issues. I have exams coming up, so it's probably going to fall silent for a while. And after those, I will probably create the minimum reproducible example to see if I can work out a fix, or stand a better chance of asking someone more knowledgeable than myself what the root cause is.  
 
 ## License
-[GPL v2.0](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
+To be clear, there is has no connection to pynput in any way other than it is used in the project. If there is a problem with how snakebinds uses pynput, then report that here.
+
+Code given here licensed under [GPL v2.0](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html).
