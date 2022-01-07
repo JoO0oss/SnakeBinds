@@ -1,0 +1,70 @@
+These have just been copied from dir(pynput.keyboard.Key),
+and are the names used internally, but you can use aliases
+or alternate names kept in snakebind_pynput.py
+
+alt
+alt_gr
+alt_r
+backspace
+caps_lock
+cmd
+cmd_r
+ctrl
+ctrl_r
+delete
+down
+end
+enter
+esc
+f1
+f10
+f11
+f12
+f13
+f14
+f15
+f16
+f17
+f18
+f19
+f2
+f20
+f3
+f4
+f5
+f6
+f7
+f8
+f9
+home
+insert
+left
+media_next
+media_play_pause
+media_previous
+media_volume_down
+media_volume_mute
+media_volume_up
+menu
+num_lock
+page_down
+page_up
+pause
+print_screen
+right
+scroll_lock
+shift
+shift_r
+space
+tab
+up
+
+Note: I have also made new key names for mouse buttons
+based off pynput's labelling of mouse buttons and keys,
+but with mouse_ preceding the rest of the key name:
+
+mouse_left
+mouse_middle
+mouse_right
+mouse_button9
+mouse_button8
