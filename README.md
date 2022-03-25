@@ -7,7 +7,7 @@ Cross platform macro tool built in Python.
 
 Currently, I can only recommend copying the subfolder `snakebinds` into your project to use temporarily, since it is not in a state to publish more formally.
 
-Yes, it was a mistake to have the project folder called `snakebinds` and call the package `snakebinds`, I will fix that as soon as I can.
+The project on Github has the name `SnakeBinds`, it contains a Python module called `snakebinds`, originally the project was also named `snakebinds` with the url lowercase as well, there may be a few mistakes in documentation that hasn't been updated to reflect the informative capitalisation.
 
 
 ### Example
