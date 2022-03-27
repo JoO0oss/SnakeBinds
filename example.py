@@ -1,30 +1,32 @@
-from snakebind import bind, unbind
+from snakebinds import bind, unbind
 import time
 import pyautogui
 
-
+@bind
 def test_hotkey():
     """ctrl+shift+t"""
     print("Test hotkey runs.")
 
-
+@bind
 def alternative_test_hotkey():
     """control+shift+y"""
     print("Alternative test hotkey runs as well.")
 
+def click_delay():
+    """None-macro function, can be ran by the the programmer as normal."""
+    pyautogui.click()
+    time.sleep(0.05)
 
+@bind
 def click_hotkey():
     """ctrl+m_forwards"""
     for _ in range(10):
-        pyautogui.click()
-        # WHY DOES THIS NOT WORK, BEING UNABLE TO AUTOMATE SIMPLE MOUSE CLICKS RENDERS THIS WHOLE SODDING PROJECT USELESS.
-        time.sleep(0.05)
+        click_delay()
 
-
+@bind
 def leave_hotkey():
     """ctrl+esc+!shift"""
-    unbind()
     print("Stopping Macros.")
+    unbind()
 
-
-bind(test_hotkey, alternative_test_hotkey, click_hotkey, leave_hotkey)
+bind()
