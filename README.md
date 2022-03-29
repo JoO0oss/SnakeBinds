@@ -7,7 +7,7 @@ I can confirm it works on Windows 10, but there may be issues on Linux with GTK 
 
 To be brutally honest, this project (although now vaguely functional), is probably best still treated as a _toy project_, so dropping the `snakebinds` folder into the main directory you're coding in is currently the only way to use it. As always, don't blindly trust everything you see on the internet - I've done my best to make it clear any system calls are readable and non-malicious, but it's probably best to avoid running random Python scripts without checking it over or perhaps throwing it into a virtual machine.
 
-The project on Github has the name `SnakeBinds`, it contains a Python module called `snakebinds`, originally the project was also named `snakebinds` with the url lowercase as well, there may be a few mistakes in documentation that hasn't been updated to reflect the informative capitalisation.
+The project on Github has the name `SnakeBinds`, it contains a Python module called `snakebinds`, originally the project was also named `snakebinds` with the url lowercase as well, there may be a few mistakes in documentation that hasn't been updated to reflect the more informative capitalisation.
 
 
 ### Example
