@@ -1,7 +1,7 @@
 # SnakeBinds
 Cross platform macro tool built in Python.
 
-I can confirm it works on Windows 10, but there may be issues on Linux with GTK doing things the way I thought it does things - and also there maybe issues with different distros.
+I can confirm it works on Windows 10, but there may be issues on Linux with GTK not doing things the way I thought it does things - and also there maybe issues with different distros.
 
 ## Use in a project
 
