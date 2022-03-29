@@ -31,8 +31,11 @@ class MacroThread:
 
         def run_this():
             nonlocal self
-            func()
-            self._finished = True
+            try:
+                func()
+            finally:
+                # Make sure that even if func() errors, the thread can still be joined.
+                self._finished = True
         
         self._thread = threading.Thread(target=run_this, args=args, kwargs=kwargs)
 
