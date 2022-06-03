@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Converts macro key aliases into snakebind's arbitrary naming system, but it's very similar to pynput's."""
 
 from snakebinds.snakebind_agnostic import snakebind_keys, _alias_lookup_dict
@@ -20,7 +21,6 @@ else:
 
 # Tidy these up so it's easier to verify these calls aren't malicious in any way.
 del get_os
-del os
 
 
 def is_macro_key(macro_key: str) -> bool:
@@ -36,9 +36,6 @@ def is_macro_key(macro_key: str) -> bool:
     # I have yet to sort out how to allow + or ! as usable macro keys.
     # I would probably say \! and \+ would work fine for future versions to implement.
     # Unfortunately, pressing shift+1 to get ! will not show up as shift+1, it will show as shift+!.
-    if macro_key[0] == "!":
-        macro_key = macro_key[1:]
-        # This just removes the exclamation mark, and tests the rest of macro_key on its own.
 
     if macro_key in _alias_lookup_dict.keys() or macro_key in snakebind_keys:
         return True

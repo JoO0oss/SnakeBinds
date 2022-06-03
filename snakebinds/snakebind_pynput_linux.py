@@ -1,3 +1,4 @@
+from __future__ import annotations
 from pynput import mouse, keyboard
 
 def pynput_to_snakebind(key: keyboard.Key | keyboard.KeyCode | mouse.Button) -> str:

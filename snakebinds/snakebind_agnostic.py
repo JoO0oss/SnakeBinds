@@ -1,5 +1,5 @@
 """Random things that need to be shared amongst windows and linux instances."""
-abb = abbreviator = "."
+abb = "$"  # Marks an abbreviation (eg $u is up, $d is down, also $^ is up, $< is left, etc.)
 
 # Just grabbed these from pynput using dir().
 _pynput_labels = [
