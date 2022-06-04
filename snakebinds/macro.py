@@ -92,6 +92,9 @@ _currently_held_keys: set[str] = set()
 _macro_threads: list[MacroThread] = []  # These are the running macros.
 _queued_partials: list[Callable] = []  # Invidividual keys are pressed as per their position in this queue.
 
+_keyboard_listener = None
+_mouse_listener = None
+
 
 def false_if_exclamation(word: str) -> bool: return word[0] != "!"
 def is_not_killable(macro_thread: MacroThread) -> bool: return not macro_thread.killable
@@ -353,14 +356,17 @@ def _bind():
     global _run
     global _bound_keys
     global _run_these_funcs
+    global _mouse_listener
+    global _keyboard_listener
     
     _run = True
 
-    mouse_listener = mouse.Listener(on_click=on_click)
-    mouse_listener.start()
+    if _mouse_listener is not None:
+        _mouse_listener = mouse.Listener(on_click=on_click)
+        _mouse_listener.start()
 
-    keyboard_listener = keyboard.Listener(on_press=on_press, on_release=on_release)
-    keyboard_listener.start()
+        _keyboard_listener = keyboard.Listener(on_press=on_press, on_release=on_release)
+        _keyboard_listener.start()
 
     # Start checking for macro combinations in here.
     rebind()
@@ -369,11 +375,11 @@ class ctl:
     """Extra functions that help above the simple start/stop (eg bind, unbind, rebind) commands
     available in the module's global namespace."""
     KEY_WARN = False  # Alerts if a key event triggers changing it to a state it's already in.
-    DEBUG_SHOW_KEYS = False  # Prints keypress events to the console.
+    DEBUG_SHOW_KEYS = False  # If true, prints keypress events to the console.
     MACRO_CYCLE_DELAY = 0.002  # How often to test for macro combinations being requested.
+    EMPTY_QUEUE_AFTER_UNBIND = True  # If true, unbind() cancels any queued calls (eg pyautogui).
 
     BE_NICE_TO_WINDOWS_PYAUTOGUI = True
-    EMPTY_QUEUE_AFTER_UNBIND = True
     THREAD_UNSAFE_OPTIMISATION = False
     # These have the power to give plain pyautogui bindings instead a wrapped version that queues
     # them to run.
@@ -409,6 +415,7 @@ class ctl:
         class FakePyautogui:
             def __getattr__(self, name: str):
                 if hasattr(pyautogui.__dict__[name], "__call__"):
+                    # Separate getting pyautogui functions from constants.
                     def fake_func(*args, **kwargs):
                         ctl.queue(partial(pyautogui.__dict__[name], *args, **kwargs))
                     return fake_func  # When called, it queues the relevant pyautogui function.
@@ -448,13 +455,13 @@ class ctl:
                 not get_exclusions(key_comb) & _currently_held_keys
         
 
-    def get_pressed_keys() -> list[str]:
+    def get_pressed_keys() -> tuple[str]:
         """Returns a list of currently pressed keys.
 
         Returns:
             A list of currently pressed keys.
         """
-        return list(_currently_held_keys)
+        return tuple(_currently_held_keys)
 
 
     # Just so the user doesn't need to track whether it's paused in their scripts.
