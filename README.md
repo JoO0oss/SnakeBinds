@@ -130,7 +130,7 @@ There are three functions you can use straight from snakebinds, and then some he
 ## Further notes
 The main reason I'm making something like this is that minimal looking [AHK](https://www.autohotkey.com)-like macro writing software doesn't seem to exist cross-platform. So the project intends to do as little as it can behind the scenes while allowing less verbose Python scripts to run unrestricted.
 
-To be sure, there can be room to expand, like finding simple way to avoid users making their own calls to [pynput](https://pypi.org/project/pynput/) or [pyautogui](https://pypi.org/project/PyAutoGUI/) for keyboard or mouse inputs, but otherwise it seems mostly there. (`ctl.import_pyautogui()` tries to remedy that, but there is probably a better way, although my main justification was that people don't therefore have to relearn yet another input automation library, and pyautogui is a lot better supported possibly more than SnakeBinds ever will be.)
+To be sure, there can be room to expand, like finding simple way to avoid users making their own calls to [pynput](https://pypi.org/project/pynput/) or [pyautogui](https://pypi.org/project/PyAutoGUI/) for keyboard or mouse inputs, but otherwise it seems mostly there. (`ctl.import_pyautogui()` tries to remedy that, there is probably a better way, although the main justification was that people don't therefore have to relearn yet another input automation library, and pyautogui is a lot better supported possibly more than SnakeBinds ever will be.)
 
 ## License
 To be clear, there is no connection to pynput in any way other than it is used in the project. If there is a problem with how SnakeBinds uses pynput, then report that here. Likewise with pyautogui.
