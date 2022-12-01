@@ -396,8 +396,9 @@ class ctl:
         _queued_partials.append(non_blocking_func)
 
     def print(*args, **kwargs):
-        """Print function that runs in sequence with its time put in the queue with other
-        commands."""
+        """Queued print function, it prints out in the same order it was called, but also taking
+        into account other queued macro calls."""
+        # Basically run this as a normal print and it will add the appriopriate asynchronisation.
         _queued_partials.append(lambda: print(*args, **kwargs))
     
     def import_pyautogui():
